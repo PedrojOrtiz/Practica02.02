@@ -5,10 +5,112 @@
  */
 package practica002.vista;
 
+import java.awt.FlowLayout;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import practica002.controlador.GestionDato;
+import practica002.modelo.Pais;
+
 /**
  *
  * @author pedro
  */
-public class VentanaPais {
+public class VentanaPais extends JInternalFrame
+{
+     private GestionDato gestionDato;
+    private List<JLabel> etiList;
+    private List<JTextField> txtList;
+    private JButton boton;
+    private Object[][] datos;
+    private Object[] encabezado;
+    private DefaultTableModel modeloTabla;
+    private JTable tabla;
+    private JScrollPane scroll;
+    private JPanel panel;
+
+    public VentanaPais(GestionDato gestionDato) 
+    {
+        super("Registrar Pais",true,true,true,true);
+        this.gestionDato = gestionDato;
+        this.iniciaComponentes();
+        this.setSize(600, 500);  
+        
+    }
+     
+    public void iniciaComponentes()
+    {
+         this.etiList= new ArrayList<JLabel>();
+        this.txtList= new ArrayList<JTextField>();
+        this.etiList.add(new JLabel("Nombre:"));
+        this.etiList.add(new JLabel("Continente:"));
+        this.etiList.add(new JLabel("Capital:"));
+        this.etiList.add(new JLabel("Codigo:"));
+        this.txtList.add(new JTextField(5));
+        this.txtList.add(new JTextField(5)); 
+        this.txtList.add(new JTextField(5)); 
+        this.txtList.add(new JTextField(5));  
+         
+        JPanel panel = new JPanel(new FlowLayout());
+        
+        panel.add(this.etiList.get(0));
+        panel.add(this.txtList.get(0));
+        
+        panel.add(this.etiList.get(1));
+        panel.add(this.txtList.get(1));
+        
+        panel.add(this.etiList.get(2));
+        panel.add(this.txtList.get(2));
+        
+        panel.add(this.etiList.get(3));
+        panel.add(this.txtList.get(3));
+        
+        
+        this.encabezado= new Object[4];               
+        this.encabezado[0]="Nombre";
+        this.encabezado[1]="Continente;";
+        this.encabezado[2]="Capital";
+        this.encabezado[3]="Codigo";
+    
+        
+        
+        this.datos=cargaDatosTabla(this.gestionDato.getPaisList().size(),4);
+        
+        this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);        
+        this.tabla= new JTable(this.modeloTabla);
+        this.scroll = new JScrollPane(this.tabla);
+        this.boton=new JButton("Guardar");
+        //this.boton.addActionListener(new EventoAsistente(this));
+        panel.add(this.boton);
+        panel.add(this.scroll);
+        
+        
+        this.add(panel);
+        
+    }
+     public Object[][] cargaDatosTabla(int h, int w)
+    {
+        Object[][] retorno= new Object[h][w];
+        int i=0;
+        for(Pais a:this.gestionDato.getPaisList())
+        {
+    
+            retorno[i][0]=a.getNombre();
+            retorno[i][1]=a.getContienente();
+            retorno[i][2]=a.getCapital();
+            retorno[i][3]=a.getCodigo();
+            i++;
+        }        
+        return retorno;
+    }
+    
+    
     
 }

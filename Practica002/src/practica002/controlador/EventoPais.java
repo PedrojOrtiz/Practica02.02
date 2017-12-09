@@ -5,10 +5,15 @@
  */
 package practica002.controlador;
 
+
+
 /**
  *
  * @author pedro
  */
-public class EventoPais {
-    
+public class EventoPais
+{
+ 
+
+ 
 }

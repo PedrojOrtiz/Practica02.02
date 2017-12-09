@@ -9,6 +9,9 @@ package practica002.modelo;
  *
  * @author pedro
  */
-public class Parroquia {
-    
+public class Parroquia
+{
+
+
+ 
 }

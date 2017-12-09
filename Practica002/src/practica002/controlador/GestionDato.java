@@ -5,10 +5,33 @@
  */
 package practica002.controlador;
 
+import java.util.List;
+import practica002.modelo.Pais;
+
 /**
  *
  * @author pedro
  */
-public class GestionDato {
+public class GestionDato 
+{
+     private List<Pais> paisList;
+
+    public GestionDato(List<Pais> paisList) {
+        this.paisList = paisList;
+    }
+     
+      public boolean addPais(Pais as)
+    {
+        return this.paisList.add(as);
+    } 
+
+    public List<Pais> getPaisList() {
+        return paisList;
+    }
+
+    public void setPaisList(List<Pais> paisList) {
+        this.paisList = paisList;
+    }
+      
     
 }

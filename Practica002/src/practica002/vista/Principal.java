@@ -8,6 +8,7 @@ package practica002.vista;
 import java.util.ArrayList;
 import java.util.List;
 import practica002.controlador.GestionDato;
+import practica002.modelo.Canton;
 import practica002.modelo.Pais;
 
 /**
@@ -22,7 +23,8 @@ public class Principal {
     public static void main(String[] args) 
     {
          List<Pais> lB = new ArrayList<Pais>();
-         GestionDato gD = new GestionDato(lB);
+         List<Canton> can = new ArrayList<Canton>();
+         GestionDato gD = new GestionDato(lB,can);
         VentanaPrincipal VentPri = new VentanaPrincipal(gD);
     }
     

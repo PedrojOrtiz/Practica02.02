@@ -6,6 +6,7 @@
 package practica002.controlador;
 
 import java.util.List;
+import practica002.modelo.Canton;
 import practica002.modelo.Pais;
 
 /**
@@ -15,12 +16,14 @@ import practica002.modelo.Pais;
 public class GestionDato 
 {
      private List<Pais> paisList;
+     private List<Canton> cantonList;
 
-    public GestionDato(List<Pais> paisList) {
+    public GestionDato(List<Pais> paisList, List<Canton> cantonList) {
         this.paisList = paisList;
+        this.cantonList = cantonList;
     }
      
-      public boolean addPais(Pais as)
+    public boolean addPais(Pais as)
     {
         return this.paisList.add(as);
     } 
@@ -32,6 +35,16 @@ public class GestionDato
     public void setPaisList(List<Pais> paisList) {
         this.paisList = paisList;
     }
-      
+
+    public List<Canton> getCantonList() {
+        return cantonList;
+    }
+    public void setCantonList(List<Canton> cantonList) {
+        this.cantonList = cantonList;
+    }  
+    public boolean addCanton(Canton canton)
+    {
+        return this.cantonList.add(canton);
+    } 
     
 }

@@ -12,17 +12,24 @@ package practica002.modelo;
 public class Pais
 {
  private String nombre;
- private String contienente;
+ private String continente;
  private Canton capital;
  private int codigo;
 
-    public Pais(String nombre, String contienente, Canton capital, int codigo) {
+    public Pais(String nombre, String continente, Canton capital, int codigo) {
         this.nombre = nombre;
-        this.contienente = contienente;
+        this.continente = continente;
         this.capital = capital;
         this.codigo = codigo;
     }
 
+    public Pais(String nombre, String continente, int codigo) {
+        this.nombre = nombre;
+        this.continente = continente;
+        this.codigo = codigo;
+    }
+
+ 
     public String getNombre() {
         return nombre;
     }
@@ -31,12 +38,12 @@ public class Pais
         this.nombre = nombre;
     }
 
-    public String getContienente() {
-        return contienente;
+    public String getContinente() {
+        return continente;
     }
 
-    public void setContienente(String contienente) {
-        this.contienente = contienente;
+    public void setContinente(String continente) {
+        this.continente = continente;
     }
 
     public Canton getCapital() {
@@ -57,8 +64,8 @@ public class Pais
 
     @Override
     public String toString() {
-        return "Pais{" + "nombre=" + nombre + ", contienente=" + contienente + ", capital=" + capital + ", codigo=" + codigo + '}';
+        return "Pais{" + "nombre=" + nombre + ", continente=" + continente + ", capital=" + capital + ", codigo=" + codigo + '}';
     }
- 
     
+   
 }

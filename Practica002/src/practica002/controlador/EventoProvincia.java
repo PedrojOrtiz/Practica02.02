@@ -94,6 +94,12 @@ public class EventoProvincia implements ActionListener {
 
 
             }
+            
+             if (e.getSource().equals(this.ventanaProvincia.getBotonList().get(1))) {
+                 
+                 this.ventanaProvincia.getTxtList().get(0).setText("");
+                 
+             }
 
         } catch (NumberFormatException ae) {
             JDialog d = new JDialog();
@@ -145,5 +151,7 @@ public class EventoProvincia implements ActionListener {
             return null;
         }
     }
+
+
 
 }

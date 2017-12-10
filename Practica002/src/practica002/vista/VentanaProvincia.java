@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import practica002.controlador.EventoProvincia;
 import practica002.controlador.GestionDato;
 import practica002.modelo.Pais;
 import practica002.modelo.Provincia;
@@ -168,8 +169,8 @@ public class VentanaProvincia extends JInternalFrame {
         panel.add(this.botonList.get(1));
         panel.add(this.scroll);
         
-       // this.botonList.get(0).addActionListener(new EventoProvincia(this));
-       // this.botonList.get(1).addActionListener(new EventoProvincia(this));
+       this.botonList.get(0).addActionListener(new EventoProvincia(this));
+       this.botonList.get(1).addActionListener(new EventoProvincia(this));
         
         this.add(panel);
         

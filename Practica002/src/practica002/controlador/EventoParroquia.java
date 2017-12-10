@@ -98,7 +98,7 @@ public class EventoParroquia implements ActionListener {
                 
                 try {
                     
-                    FileWriter escritura = new FileWriter(ficheroParroquia);
+                    FileWriter escritura = new FileWriter(ficheroParroquia, true);
                     BufferedWriter buffEscritura = new BufferedWriter(escritura);
                     buffEscritura.write(pa.toString());
                     buffEscritura.close();

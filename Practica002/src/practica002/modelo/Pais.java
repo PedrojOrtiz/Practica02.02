@@ -13,23 +13,16 @@ public class Pais
 {
  private String nombre;
  private String continente;
- private Canton capital;
+ private String capital;
  private int codigo;
 
-    public Pais(String nombre, String continente, Canton capital, int codigo) {
+    public Pais(String nombre, String continente, String capital, int codigo) {
         this.nombre = nombre;
         this.continente = continente;
         this.capital = capital;
         this.codigo = codigo;
     }
 
-    public Pais(String nombre, String continente, int codigo) {
-        this.nombre = nombre;
-        this.continente = continente;
-        this.codigo = codigo;
-    }
-
- 
     public String getNombre() {
         return nombre;
     }
@@ -46,11 +39,11 @@ public class Pais
         this.continente = continente;
     }
 
-    public Canton getCapital() {
+    public String getCapital() {
         return capital;
     }
 
-    public void setCapital(Canton capital) {
+    public void setCapital(String capital) {
         this.capital = capital;
     }
 
@@ -62,9 +55,11 @@ public class Pais
         this.codigo = codigo;
     }
 
+   
+
     @Override
     public String toString() {
-        return  nombre + "|" + continente + "|" + codigo ;
+        return  nombre + "|" + continente +"|"+capital+ "|" + codigo ;
     }
     
    

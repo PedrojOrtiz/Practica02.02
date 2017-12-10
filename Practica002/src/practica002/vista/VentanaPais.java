@@ -52,9 +52,11 @@ public class VentanaPais extends JInternalFrame
         this.txtList= new ArrayList<JTextField>();
         this.etiList.add(new JLabel("Nombre:"));
         this.etiList.add(new JLabel("Continente:"));
+        this.etiList.add(new JLabel("Capital:"));
         this.etiList.add(new JLabel("Codigo:"));
         this.txtList.add(new JTextField(5));
         this.txtList.add(new JTextField(5)); 
+         this.txtList.add(new JTextField(5));
         this.txtList.add(new JTextField(5));   
          
         JPanel panel = new JPanel(new FlowLayout());
@@ -68,17 +70,21 @@ public class VentanaPais extends JInternalFrame
         panel.add(this.etiList.get(2));
         panel.add(this.txtList.get(2));
         
+        panel.add(this.etiList.get(3));
+        panel.add(this.txtList.get(3));
+        
 
         
         
-        this.encabezado= new Object[3];               
+        this.encabezado= new Object[4];               
         this.encabezado[0]="Nombre";
         this.encabezado[1]="Continente";
-        this.encabezado[2]="Codigo";
+        this.encabezado[2]="Capital";
+        this.encabezado[3]="Codigo";
     
         
         
-        this.datos=cargaDatosTabla(this.gestionDato.getPaisList().size(),3);
+        this.datos=cargaDatosTabla(this.gestionDato.getPaisList().size(),4);
         
         this.modeloTabla = new DefaultTableModel(this.datos,this.encabezado);        
         this.tabla= new JTable(this.modeloTabla);
@@ -101,7 +107,8 @@ public class VentanaPais extends JInternalFrame
     
             retorno[i][0]=a.getNombre();
             retorno[i][1]=a.getContinente();
-            retorno[i][2]=a.getCodigo();
+            retorno[i][2]=a.getCapital();
+            retorno[i][3]=a.getCodigo();
             i++;
         }        
         return retorno;

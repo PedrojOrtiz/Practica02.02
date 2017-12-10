@@ -37,15 +37,16 @@ public class EventoPais  implements ActionListener
            try{
                String nombre = this.ventanaPais.getTxtList().get(0).getText();
                String continente = this.ventanaPais.getTxtList().get(1).getText();
-               int codigo = Integer.parseInt(this.ventanaPais.getTxtList().get(2).getText());
-               Pais pais = new Pais(nombre,continente,codigo);
+               String capital = this.ventanaPais.getTxtList().get(2).getText();
+               int codigo = Integer.parseInt(this.ventanaPais.getTxtList().get(3).getText());
+               Pais pais = new Pais(nombre,continente,capital,codigo);
                boolean bandera = true;
                
                int i = 0;
                
                for (Pais a : this.ventanaPais.getGestionDato().getPaisList()) {
                    
-                   if (pais.getCodigo() == this.ventanaPais.getGestionDato().getPaisList().get(i).getCodigo()) {
+                   if (pais.getCodigo() == this.ventanaPais.getGestionDato().getPaisList().get(i).getCodigo() || (pais.getNombre() == null ? this.ventanaPais.getGestionDato().getPaisList().get(i).getNombre() == null : pais.getNombre().equals(this.ventanaPais.getGestionDato().getPaisList().get(i).getNombre()))) {
                        
                        JOptionPane.showMessageDialog(null, "Datos ya existentes");
                        bandera = false;
@@ -65,7 +66,7 @@ public class EventoPais  implements ActionListener
            this.ventanaPais.getTxtList().get(0).setText("");
            this.ventanaPais.getTxtList().get(1).setText("");
            this.ventanaPais.getTxtList().get(2).setText("");
-           Object[][] datoAsistente = this.ventanaPais.cargaDatosTabla(this.ventanaPais.getGestionDato().getPaisList().size(), 3);
+           Object[][] datoAsistente = this.ventanaPais.cargaDatosTabla(this.ventanaPais.getGestionDato().getPaisList().size(), 4);
            this.ventanaPais.setDatos(datoAsistente);
            this.ventanaPais.getModeloTabla().setDataVector(this.ventanaPais.getDatos(), this.ventanaPais.getEncabezado());
           //Agregar Archivo Ubicacion 

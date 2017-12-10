@@ -10,6 +10,7 @@ import java.util.List;
 import practica002.controlador.GestionDato;
 import practica002.modelo.Canton;
 import practica002.modelo.Pais;
+import practica002.modelo.Parroquia;
 
 /**
  *
@@ -24,7 +25,8 @@ public class Principal {
     {
          List<Pais> lB = new ArrayList<Pais>();
          List<Canton> can = new ArrayList<Canton>();
-         GestionDato gD = new GestionDato(lB,can);
+         List<Parroquia> lP = new ArrayList<Parroquia>();
+         GestionDato gD = new GestionDato(lB,can,lP);
         VentanaPrincipal VentPri = new VentanaPrincipal(gD);
     }
     

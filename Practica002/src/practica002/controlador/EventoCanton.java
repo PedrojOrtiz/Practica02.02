@@ -116,7 +116,7 @@ public class EventoCanton implements ActionListener
         try
         {
             
-            FileWriter ae = new FileWriter("C:\\carpetaPractica02\\CantonTexto.txt",false);
+            FileWriter ae = new FileWriter("C:\\carpetaPractica02\\Canton.txt",false);
             BufferedWriter bf = new BufferedWriter(ae);
       
             for(Canton c: cantonList)
@@ -138,7 +138,7 @@ public class EventoCanton implements ActionListener
     {
         try
         {
-            FileReader ae = new FileReader("C:\\carpetaPractica02\\CantonTexto.txt");
+            FileReader ae = new FileReader("C:\\carpetaPractica02\\Canton.txt");
             BufferedReader bf = new BufferedReader(ae);
              
             

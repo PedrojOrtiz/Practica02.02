@@ -36,6 +36,7 @@ public class VentanaCanton extends JInternalFrame
     {
         super("Ventana Canton",true,true,true,true);
         this.gestionDato = gestionDato;
+        this.setSize(600, 500); 
         this.iniciaComponente();              
     }
 

@@ -11,6 +11,7 @@ import practica002.controlador.GestionDato;
 import practica002.modelo.Canton;
 import practica002.modelo.Pais;
 import practica002.modelo.Parroquia;
+import practica002.modelo.Provincia;
 
 /**
  *
@@ -24,9 +25,10 @@ public class Principal {
     public static void main(String[] args) 
     {
          List<Pais> lB = new ArrayList<Pais>();
+         List<Provincia> prov = new ArrayList<Provincia>();
          List<Canton> can = new ArrayList<Canton>();
          List<Parroquia> lP = new ArrayList<Parroquia>();
-         GestionDato gD = new GestionDato(lB,can,lP);
+         GestionDato gD = new GestionDato(lB,prov,can,lP);
         VentanaPrincipal VentPri = new VentanaPrincipal(gD);
     }
     

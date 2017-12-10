@@ -47,6 +47,8 @@ public class VentanaPrincipal extends JFrame
         this.menuList.add(new JMenu("Administar"));// ingreso de datos en el array
         this.menuList.add(new JMenu("Informacion"));// ingreso de datos en el array*/
         
+        this.menuList.add(new JMenu("Provincia"));
+        
         this.menuList.add(new JMenu("Canton"));
         
         this.menuList.add(new JMenu("Parroquia"));
@@ -64,6 +66,8 @@ public class VentanaPrincipal extends JFrame
         this.menuItemList.add(new JMenuItem("Eliminar Archivo"));
         
         this.menuItemList.add(new JMenuItem("Directorio"));*/
+        
+        this.menuItemList.add(new JMenuItem("Agregar Provincia"));
         
         this.menuItemList.add(new JMenuItem("Agregar Canton"));
         
@@ -93,11 +97,16 @@ public class VentanaPrincipal extends JFrame
         this.barraMenu.add(this.menuList.get(2));
         this.menuList.get(2).add(this.menuItemList.get(2));
         
+        this.barraMenu.add(this.menuList.get(3));
+        this.menuList.get(3).add(this.menuItemList.get(3));
+        
         this.menuItemList.get(0).addActionListener(new EventoPrincipal(this));
       //this.menuItemList.get(1).addActionListener(new EventoVentanaPrincipal(this));
         this.menuItemList.get(1).addActionListener(new EventoPrincipal(this));
         
         this.menuItemList.get(2).addActionListener(new EventoPrincipal(this));
+        
+        this.menuItemList.get(3).addActionListener(new EventoPrincipal(this));
         /*this.menuItemList.get(3).addActionListener(new EventoVentanaPrincipal(this));
         this.menuItemList.get(4).addActionListener(new EventoVentanaPrincipal(this));
         this.menuItemList.get(5).addActionListener(new EventoVentanaPrincipal(this));

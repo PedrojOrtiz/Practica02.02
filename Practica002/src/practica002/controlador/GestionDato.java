@@ -9,6 +9,7 @@ import java.util.List;
 import practica002.modelo.Canton;
 import practica002.modelo.Pais;
 import practica002.modelo.Parroquia;
+import practica002.modelo.Provincia;
 
 /**
  *
@@ -17,11 +18,13 @@ import practica002.modelo.Parroquia;
 public class GestionDato {
 
     private List<Pais> paisList;
+    private List<Provincia> provinciaList;
     private List<Canton> cantonList;
     private List<Parroquia> parroquiaList;
 
-    public GestionDato(List<Pais> paisList, List<Canton> cantonList, List<Parroquia> parroquiaList) {
+    public GestionDato(List<Pais> paisList, List<Provincia> provinciaList, List<Canton> cantonList, List<Parroquia> parroquiaList) {
         this.paisList = paisList;
+        this.provinciaList = provinciaList;
         this.cantonList = cantonList;
         this.parroquiaList = parroquiaList;
     }
@@ -61,7 +64,17 @@ public class GestionDato {
     public void setParroquiaList(List<Parroquia> parroquiaList) {
         this.parroquiaList = parroquiaList;
     }
-    
-    
 
+    public List<Provincia> getProvinciaList() {
+        return provinciaList;
+    }
+
+    public void setProvinciaList(List<Provincia> provinciaList) {
+        this.provinciaList = provinciaList;
+    }
+    
+    public boolean addProvincia(Provincia provincia){
+        
+        return this.provinciaList.add(provincia);
+    }
 }

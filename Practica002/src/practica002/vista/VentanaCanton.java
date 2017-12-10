@@ -149,7 +149,7 @@ public class VentanaCanton extends JInternalFrame
               
     }
     
-   /* public String[] cargaCombo() 
+   /*public String[] cargaCombo() 
     {       
         String[] retorno = new String[this.gestionDato.getProvinciaList().size()];
         int i=0;

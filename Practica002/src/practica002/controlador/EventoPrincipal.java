@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import practica002.vista.VentanaCanton;
 import practica002.vista.VentanaPais;
+import practica002.vista.VentanaParroquia;
 import practica002.vista.VentanaPrincipal;
 
 /**
@@ -39,6 +40,12 @@ public class EventoPrincipal implements ActionListener
             VentanaCanton VentCant = new VentanaCanton(this.VentPrincipal.getGestionDato());
             VentCant.setVisible(true);
             this.VentPrincipal.getEscritorio().add(VentCant);
+        }
+        
+        if(e.getSource().equals(this.VentPrincipal.getMenuItemList().get(2))) {
+            VentanaParroquia vP = new VentanaParroquia(this.VentPrincipal.getGestionDato());
+            vP.setVisible(true);
+            this.VentPrincipal.getEscritorio().add(vP);
         }
     }
 

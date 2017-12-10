@@ -45,7 +45,7 @@ public class VentanaParroquia extends JInternalFrame {
         this.gestionDato = gestionDato;
         this.iniciaComponente();
         this.setLocation(170, 50);
-        this.setSize(625, 550);              
+        this.setSize(500, 300);              
     }
 
     public GestionDato getGestionDato() {

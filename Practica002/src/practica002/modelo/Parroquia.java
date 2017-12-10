@@ -37,7 +37,7 @@ public class Parroquia {
 
     @Override
     public String toString() {
-        return "Parroquia{" + "nombre=" + nombre + ", canton=" + canton + '}';
+        return nombre + "|" + canton;
     }
     
  

@@ -30,7 +30,7 @@ public class Canton
 
     @Override
     public String toString() {
-        return "|Canton|" + nombre + "\t |" + provincia ;
+        return nombre + "|" + provincia ;
     }
     
    

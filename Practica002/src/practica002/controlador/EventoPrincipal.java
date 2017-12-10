@@ -7,6 +7,7 @@ package practica002.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import practica002.vista.VentanaCanton;
 import practica002.vista.VentanaPais;
 import practica002.vista.VentanaParroquia;
@@ -27,6 +28,12 @@ public class EventoPrincipal implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        File carpeta = new File("C:\\carpetaPractica02");
+        if(carpeta.exists() == false) {
+            carpeta.mkdir();
+        }
+        
         if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(0))) {
             System.err.println("Ventana Pais");
             VentanaPais VentPais = new VentanaPais(this.VentPrincipal.getGestionDato());

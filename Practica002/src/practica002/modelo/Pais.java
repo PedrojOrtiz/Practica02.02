@@ -64,7 +64,7 @@ public class Pais
 
     @Override
     public String toString() {
-        return "Pais{" + "nombre=" + nombre + ", continente=" + continente + ", capital=" + capital + ", codigo=" + codigo + '}';
+        return  nombre + "|" + continente + "|" + codigo ;
     }
     
    

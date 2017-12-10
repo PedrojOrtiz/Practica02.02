@@ -4,11 +4,7 @@
  * and open the template in the editor.
  */
 package practica002.modelo;
-
-/**
- *
- * @author pedro
- */
+//Prueba
 public class Canton 
 {
     private String nombre;;

@@ -7,6 +7,7 @@ package practica002.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import practica002.vista.VentanaCanton;
 import practica002.vista.VentanaPais;
 import practica002.vista.VentanaPrincipal;
 
@@ -32,7 +33,13 @@ public class EventoPrincipal implements ActionListener
             VentPais.setVisible(true);
             this.VentPrincipal.getEscritorio().add(VentPais);
         }
-        
+        if (e.getSource().equals(this.VentPrincipal.getMenuItemList().get(1))) 
+        {
+            System.err.println("Ventana Canton"); 
+            VentanaCanton VentCant = new VentanaCanton(this.VentPrincipal.getGestionDato());
+            VentCant.setVisible(true);
+            this.VentPrincipal.getEscritorio().add(VentCant);
+        }
     }
 
     public VentanaPrincipal getVentPrincipal() {

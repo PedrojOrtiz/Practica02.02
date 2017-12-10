@@ -49,14 +49,14 @@ public class EventoCanton implements ActionListener {
             if (e.getSource().equals(this.ventanaCanton.getBotonList().get(0))) {
                 String nombre = this.ventanaCanton.getTxtList().get(0).getText();
                 int nump = this.ventanaCanton.getComboProvincia().getSelectedIndex();
-                //this.provincia = this.ventanaCanton.getGestionDato().getProvinciaList().get(nump);
+                this.provincia = this.ventanaCanton.getGestionDato().getProvinciaList().get(nump);
 
                 Canton c = new Canton(nombre, this.provincia);
 
                 int i = 0;
                 boolean ban = true;
                 for (Canton ca : this.ventanaCanton.getGestionDato().getCantonList()) {
-                    // if(c.getNombre().equals(this.ventanaCanton.getGestionDato().getCantonList().get(i).getNombre()) == true && c.getProvincia().getNombre().equals(this.ventanaCanton.getGestionDato().getCantonList().get(i).getProvincia().getNombre()) == true) 
+                    if(c.getNombre().equals(this.ventanaCanton.getGestionDato().getCantonList().get(i).getNombre()) == true && c.getProvincia().getNombre().equals(this.ventanaCanton.getGestionDato().getCantonList().get(i).getProvincia().getNombre()) == true) 
                     {
                         ban = false;
                         JDialog d = new JDialog();
@@ -67,7 +67,7 @@ public class EventoCanton implements ActionListener {
                         d.setVisible(true);
                         break;
                     }
-                    //i++;
+                    i++;
                 }
 
                 if (ban == true) {

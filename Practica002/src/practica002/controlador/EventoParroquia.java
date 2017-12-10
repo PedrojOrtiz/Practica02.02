@@ -63,7 +63,7 @@ public class EventoParroquia implements ActionListener {
             //control dato repetido
             boolean ban = true;
             for (Parroquia p : this.ventanaParroquia.getGestionDato().getParroquiaList()) {
-                if (pa.equals(p) == true) {
+                if (pa.getNombre().equals(p.getNombre()) && pa.getCanton().getNombre().equals(p.getCanton().getNombre())) {
                     ban = false;
                     JDialog d = new JDialog();
                     d.setTitle("Error");
@@ -75,40 +75,44 @@ public class EventoParroquia implements ActionListener {
                 }
             }
             if (ban == true) {
+                
                 this.ventanaParroquia.getGestionDato().addParroquia(pa);
-            }
 
-            Object[][] datoParroquia = this.ventanaParroquia.cargaDatosTabla(this.ventanaParroquia.getGestionDato().getParroquiaList().size(), 2);
-            this.ventanaParroquia.setDatos(datoParroquia);
-            this.ventanaParroquia.getModeloTabla().setDataVector(this.ventanaParroquia.getDatos(), this.ventanaParroquia.getEncabezado());
+                Object[][] datoParroquia = this.ventanaParroquia.cargaDatosTabla(this.ventanaParroquia.getGestionDato().getParroquiaList().size(), 2);
+                this.ventanaParroquia.setDatos(datoParroquia);
+                this.ventanaParroquia.getModeloTabla().setDataVector(this.ventanaParroquia.getDatos(), this.ventanaParroquia.getEncabezado());
 
-            //Agregar Archivo Ubicacion
-            File ficheroParroquia = new File("C:\\carpetaPractica02\\Parroquia.txt");
-            if (ficheroParroquia.exists() == false) {
-                
-                try {
-                    
-                    ficheroParroquia.createNewFile();
-                    
-                } catch(Exception e) {
-                    
-                    e.printStackTrace();
-                    
+                //Agregar Archivo Ubicacion
+                File ficheroParroquia = new File("C:\\carpetaPractica02\\Parroquia.txt");
+
+                if (ficheroParroquia.exists() == false) {
+
+                    try {
+
+                        ficheroParroquia.createNewFile();
+
+                    } catch (Exception e) {
+
+                        e.printStackTrace();
+
+                    }
+
                 }
-                
+
                 try {
-                    
+
                     FileWriter escritura = new FileWriter(ficheroParroquia, true);
                     BufferedWriter buffEscritura = new BufferedWriter(escritura);
-                    buffEscritura.write(pa.toString());
+                    buffEscritura.append(pa.toString());
+                    buffEscritura.newLine();
                     buffEscritura.close();
-                    
-                } catch(Exception e) {
-                    
+
+                } catch (Exception e) {
+
                     e.printStackTrace();
-                    
+
                 }
-                
+
             }
 
         } catch (NumberFormatException e) {

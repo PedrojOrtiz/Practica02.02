@@ -102,6 +102,8 @@ public class EventoProvincia implements ActionListener {
                         ae.printStackTrace();
 
                     }
+                    
+                }
 
                     try {
 
@@ -115,8 +117,6 @@ public class EventoProvincia implements ActionListener {
                         ae.printStackTrace();
 
                     }
-
-                }
             }
 
             if (e.getSource().equals(this.ventanaProvincia.getBotonList().get(1))) {

@@ -112,7 +112,7 @@ public class VentanaCanton extends JInternalFrame
         this.etiList= new ArrayList<JLabel>();
         this.txtList= new ArrayList<JTextField>();
         this.botonList= new ArrayList<JButton>();
-        //this.comboProvincia = new JComboBox(this.cargaCombo());
+        this.comboProvincia = new JComboBox(this.cargaCombo());
         JPanel panel = new JPanel(new FlowLayout());
         
         this.etiList.add(new JLabel("Nombre"));
@@ -149,17 +149,17 @@ public class VentanaCanton extends JInternalFrame
               
     }
     
-   /*public String[] cargaCombo() 
+   public String[] cargaCombo() 
     {       
         String[] retorno = new String[this.gestionDato.getProvinciaList().size()];
         int i=0;
         for(Provincia p: this.gestionDato.getProvinciaList()) 
         {
-            retorno[i] = ;
+            retorno[i] = p.getNombre();
             i++;
         }
         return retorno;
-    }*/
+    }
     
     public Object[][] cargaDatosTabla(int m, int n) 
     {

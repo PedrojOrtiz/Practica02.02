@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -60,8 +61,6 @@ public class EventoProvincia implements ActionListener {
                 String nombre = this.ventanaProvincia.getTxtList().get(0).getText();
                 Provincia p = new Provincia(this.pais, nombre);
 
-                int i = 0;
-
                 boolean bandera = true;
 
                 for (Provincia prov : this.ventanaProvincia.getGestionDato().getProvinciaList()) {
@@ -78,8 +77,6 @@ public class EventoProvincia implements ActionListener {
                         break;
                     }
 
-                    i++;
-
                 }
 
                 if (bandera == true) {
@@ -87,19 +84,46 @@ public class EventoProvincia implements ActionListener {
                     this.ventanaProvincia.getGestionDato().addProvincia(p);
 
                 }
-                
+
                 Object[][] datoProvincia = this.ventanaProvincia.cargarDatosTabla(this.ventanaProvincia.getGestionDato().getProvinciaList().size(), 2);
                 this.ventanaProvincia.setDatos(datoProvincia);
                 this.ventanaProvincia.getModeloTabla().setDataVector(this.ventanaProvincia.getDatos(), this.ventanaProvincia.getEncabezado());
 
+                //Agregar Archivo Ubicacion
+                File ficheroProvincia = new File("C:\\carpetaPractica02\\Provincia.txt");
+                if (ficheroProvincia.exists() == false) {
+
+                    try {
+
+                        ficheroProvincia.createNewFile();
+
+                    } catch (Exception ae) {
+
+                        ae.printStackTrace();
+
+                    }
+
+                    try {
+
+                        FileWriter escritura = new FileWriter(ficheroProvincia, true);
+                        BufferedWriter buffEscritura = new BufferedWriter(escritura);
+                        buffEscritura.write(p.toString());
+                        buffEscritura.close();
+
+                    } catch (Exception ae) {
+
+                        ae.printStackTrace();
+
+                    }
+
+                }
+            }
+
+            if (e.getSource().equals(this.ventanaProvincia.getBotonList().get(1))) {
+
+                this.ventanaProvincia.getTxtList().get(0).setText("");
 
             }
-            
-             if (e.getSource().equals(this.ventanaProvincia.getBotonList().get(1))) {
-                 
-                 this.ventanaProvincia.getTxtList().get(0).setText("");
-                 
-             }
 
         } catch (NumberFormatException ae) {
             JDialog d = new JDialog();
@@ -118,40 +142,4 @@ public class EventoProvincia implements ActionListener {
         }
 
     }
-
-    public boolean escribirProvincia(List<Provincia> provinciaList) throws IOException {
-        try {
-
-            FileWriter ae = new FileWriter("C:\\carpetaPractica02\\Provincia.txt", false);
-            BufferedWriter bf = new BufferedWriter(ae);
-
-            for (Provincia p : provinciaList) {
-                bf.append(p.toString());
-                bf.newLine();
-            }
-            bf.close();
-
-            return true;
-        } catch (IOException ae) {
-            return false;
-        }
-    }
-
-    public List leerProvincia(List<Provincia> provinciaList) {
-        try {
-            FileReader ae = new FileReader("C:\\carpetaPractica02\\Provincia.txt");
-            BufferedReader bf = new BufferedReader(ae);
-
-            String leer = bf.readLine();
-            while (true) {
-                return provinciaList;
-            }
-
-        } catch (IOException e2) {
-            return null;
-        }
-    }
-
-
-
 }

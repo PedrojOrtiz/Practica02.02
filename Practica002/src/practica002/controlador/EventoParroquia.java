@@ -8,6 +8,12 @@ package practica002.controlador;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import practica002.modelo.Canton;
@@ -71,10 +77,39 @@ public class EventoParroquia implements ActionListener {
             if (ban == true) {
                 this.ventanaParroquia.getGestionDato().addParroquia(pa);
             }
-            
+
             Object[][] datoParroquia = this.ventanaParroquia.cargaDatosTabla(this.ventanaParroquia.getGestionDato().getParroquiaList().size(), 2);
             this.ventanaParroquia.setDatos(datoParroquia);
             this.ventanaParroquia.getModeloTabla().setDataVector(this.ventanaParroquia.getDatos(), this.ventanaParroquia.getEncabezado());
+
+            //Agregar Archivo Ubicacion
+            File ficheroParroquia = new File("C:\\carpetaPractica02\\Parroquia.txt");
+            if (ficheroParroquia.exists() == false) {
+                
+                try {
+                    
+                    ficheroParroquia.createNewFile();
+                    
+                } catch(Exception e) {
+                    
+                    e.printStackTrace();
+                    
+                }
+                
+                try {
+                    
+                    FileWriter escritura = new FileWriter(ficheroParroquia, true);
+                    BufferedWriter buffEscritura = new BufferedWriter(escritura);
+                    buffEscritura.write(pa.toString());
+                    buffEscritura.close();
+                    
+                } catch(Exception e) {
+                    
+                    e.printStackTrace();
+                    
+                }
+                
+            }
 
         } catch (NumberFormatException e) {
 
